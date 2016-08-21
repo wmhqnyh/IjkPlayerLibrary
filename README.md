@@ -6,7 +6,7 @@ B站开源播放器编译库(20160819),版本为Ijkplayer-k0.6.0
 #### 编译前准备  ####
 
 	Linux环境：本地使用Ubuntu Kylin 15.10
-	下载LinuxLinux：Java JDK，Android SDK，Android NDK，Git
+	下载Linux：Java JDK，Android SDK，Android NDK，Git
 
 	Ps：由于需要编译ffmpeg，所以在配置环境变量后要保证足够磁盘空间
 
@@ -145,6 +145,35 @@ B站开源播放器编译库(20160819),版本为Ijkplayer-k0.6.0
 	-keep class tv.danmaku.ijk.media.player.** { ; }
 	-keep interface tv.danmaku.ijk.media.player.* { *; }
 
+##### PS 
+
+	//# required, enough for most devices.
+    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
+
+    //# Other ABIs: optional
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
+
+    /**
+     * Error:Execution failed for task ':app:processDebugManifest'.
+     > Manifest merger failed : uses-sdk:minSdkVersion 14 cannot be smaller than version 21 declared in library [tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0] C:\Users\Administrator\Desktop\MHIjkPlayer\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-arm64\0.6.0\AndroidManifest.xml
+     Suggestion: use tools:overrideLibrary="tv.danmaku.ijk.media.player_arm64" to force usage
+     */
+
+    //compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'
+
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.0'
+
+    /**
+     * Error:Execution failed for task ':app:processDebugManifest'.
+     > Manifest merger failed : uses-sdk:minSdkVersion 14 cannot be smaller than version 21 declared in library [tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0] C:\Users\Administrator\Desktop\MHIjkPlayer\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-x86_64\0.6.0\AndroidManifest.xml
+     Suggestion: use tools:overrideLibrary="com.example.ijkplayer_x86_64" to force usage
+     */
+
+    //compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
+
+    //# ExoPlayer as IMediaPlayer: optional, experimental
+    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.0'
 
 
 
